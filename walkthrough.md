@@ -27,6 +27,11 @@ Ce document sert de journal pour consigner les modifications majeures apportées
      - Rendu de l'ensemble des coordonnées GPS des parkings (P1 et P2) cliquables pour ouvrir directement Google Maps.
      - Ajout d'une section météo complète et repliable (Climatologie d'Auvergne, températures plaines vs sommets, conseils d'équipement et sécurité orage/soleil/froid).
      - Intégration de badges météo quotidiens interactifs dans les entêtes de chaque jour du planning (🌤️, ☀️, ⛈️, 🔥 Canicule).
+   - **Protection par mot de passe & Chiffrement (Sécurité)** :
+     - Sécurisation du site statique (GitHub Pages) sans backend via chiffrement AES.
+     - Création du script d'automatisation `scripts/encrypt_page.py` qui lit le mot de passe dans le fichier `.env` (exclu de Git) et chiffre le contenu de `Carnet_de_Voyage.html`.
+     - Génération de la page de garde `index.html` intégrant un formulaire d'accès et le déchiffrement à la volée côté client via la bibliothèque Web Crypto native du navigateur.
+     - Ajout de `Carnet_de_Voyage.html` dans le fichier `.gitignore` et suppression de l'index de versioning Git pour garantir qu'aucune donnée en clair ne soit publiée ou accessible sur le web.
 
 ---
 
@@ -43,6 +48,9 @@ Ce document sert de journal pour consigner les modifications majeures apportées
 - [x] Intégration de fiches de randonnées alternatives plus simples pour tous les profils de marcheurs
 - [x] Intégration des coordonnées GPS exactes de départ, des indicateurs de boucles, et des deux parkings les plus proches (adresses et coordonnées GPS cliquables) pour chaque tracé
 - [x] Ajout du panneau météo thématique vert et des badges de prévision au jour le jour
+- [x] Protection par mot de passe implémentée, testée sous Chrome (déverrouillage validé avec `Sancy2026`, blocage avec message d'erreur si erroné)
+- [x] Retrait de `Carnet_de_Voyage.html` en clair de Git pour sécuriser l'accès exclusif via la page de garde
+- [x] Purge complète et définitive de l'historique Git (local et distant) de toutes les anciennes versions non chiffrées de `Carnet_de_Voyage.html` via `git filter-branch` et force push
 - [x] Déploiement en production vers GitHub (`main`) réussi sans encombre
 - [x] Preuves de rendu graphique générées et stockées sous forme de captures d'écran
 
@@ -51,6 +59,8 @@ Ce document sert de journal pour consigner les modifications majeures apportées
 ## 📸 Preuves Graphiques de Rendu HTML (Captures d'Écran)
 
 ````carousel
+![Page de Garde - Accès Sécurisé](/Users/joffreyboggio/.gemini/antigravity/brain/b460c8fe-8782-44fc-82d0-4e8bf321d6d9/screenshot_login_gate.png)
+<!-- slide -->
 ![Rendu Desktop avec Section Météo et Badges](/Users/joffreyboggio/.gemini/antigravity/brain/b460c8fe-8782-44fc-82d0-4e8bf321d6d9/screenshot_weather_collapsed.png)
 <!-- slide -->
 ![Rendu Météo Ouverte](/Users/joffreyboggio/.gemini/antigravity/brain/b460c8fe-8782-44fc-82d0-4e8bf321d6d9/screenshot_weather_expanded_real.png)
