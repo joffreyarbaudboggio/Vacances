@@ -982,6 +982,149 @@
         </div>
     </header>
 
+    <!-- Collapsible Hiking Catalog Table (full width, above planning) -->
+    <div class="container" style="padding-top: 0; margin-top: 0; margin-bottom: 32px;">
+        <div class="catalog-section open" id="catalog-section">
+            <div class="catalog-toggle" onclick="toggleCatalog()">
+                <div class="catalog-toggle-left">
+                    <svg style="width:26px;height:26px;fill:none;stroke:var(--primary);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <div>
+                        <h2>Catalogue des Sentiers &amp; Alternatives</h2>
+                        <p style="font-size:13px;color:var(--text-muted);font-weight:500;margin-top:3px;">5 randonn&#233;es principales &middot; 2 alternatives chacune &middot; GPS cliquables &middot; Parkings</p>
+                    </div>
+                </div>
+                <div class="catalog-toggle-right">
+                    <span class="catalog-state-label" id="catalog-state">Replier &#9650;</span>
+                    <svg class="catalog-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                </div>
+            </div>
+            <div class="catalog-body">
+            <div class="catalog-body-inner">
+            <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:18px;">Retrouvez ici tous les d&#233;tails de vos randonn&#233;es principales ainsi que plusieurs alternatives simplifi&#233;es adapt&#233;es aux capacit&#233;s physiques de chacun. Les coordonn&#233;es GPS ouvrent directement votre application de navigation.</p>
+        
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Randonn&#233;e (Type, Trac&#233;, D&#233;part)</th>
+                        <th>Dist.</th>
+                        <th>D&#233;niv.</th>
+                        <th>Dur&#233;e</th>
+                        <th>Difficult&#233;</th>
+                        <th>Parkings les plus proches (Adresses &amp; GPS)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Chaudefour -->
+                    <tr>
+                        <td><strong>Cr&#234;tes du Cirque de Chaudefour</strong> (Principale)<br>&#128257; <strong>Boucle</strong> | &#128205; D&#233;part : Maison de la R&#233;serve<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5210,2.8202" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5210, 2.8202</a></td>
+                        <td>15 km</td><td>+950 m</td><td>6h00</td>
+                        <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Maison de la R&#233;serve</strong> (Payant)<br>D637, 63790 Chambon-sur-Lac &bull; <code style="font-size:11px;">45.5210, 2.8202</code><br>&#128663; <strong>P2 : Entr&#233;e D36</strong> (Gratuit)<br><code style="font-size:11px;">45.5235, 2.8225</code></td>
+                    </tr>
+                    <tr class="alternative-row">
+                        <td>&#8627; <em>Alternative 1 : Cr&#234;tes de Crebassa</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5210,2.8202" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5210, 2.8202</a></td>
+                        <td>10 km</td><td>+550 m</td><td>4h00</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <tr class="alternative-row alternative-row-last">
+                        <td>&#8627; <em>Alternative 2 : Cascade de la Biche</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5210,2.8202" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5210, 2.8202</a></td>
+                        <td>6 km</td><td>+150 m</td><td>2h00</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <!-- Sancy -->
+                    <tr>
+                        <td><strong>Cr&#234;tes du Sancy du Mont-Dore</strong> (Principale)<br>&#128257; <strong>Boucle</strong> | &#128205; D&#233;part : Station Sancy (Mont-Dore)<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5466,2.8161" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5466, 2.8161</a></td>
+                        <td>16,5 km</td><td>+1000 m</td><td>6h30</td>
+                        <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Station du Mont-Dore</strong> (Payant)<br>63240 Le Mont-Dore &bull; <code style="font-size:11px;">45.5466, 2.8161</code><br>&#128663; <strong>P2 : Les Ch&#244;mets</strong> (Gratuit)<br><code style="font-size:11px;">45.5444, 2.8095</code></td>
+                    </tr>
+                    <tr class="alternative-row">
+                        <td>&#8627; <em>Alternative 1 : Val de Courre direct</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5466,2.8161" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5466, 2.8161</a></td>
+                        <td>7 km</td><td>+600 m</td><td>3h30</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <tr class="alternative-row alternative-row-last">
+                        <td>&#8627; <em>Alternative 2 : Cascades du Mont-Dore</em><br>&#128257; <strong>Boucle</strong> | &#128205; Parking des Cascades<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5833,2.8167" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5833, 2.8167</a></td>
+                        <td>3 km</td><td>+150 m</td><td>1h15</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Parking des Cascades</strong> (Gratuit)<br>Rte de la Cascade, 63240 &bull; <code style="font-size:11px;">45.5833, 2.8167</code><br>&#128663; <strong>P2 : Cimeti&#232;re Paysager</strong> (Gratuit)<br><code style="font-size:11px;">45.5801, 2.8115</code></td>
+                    </tr>
+                    <!-- Pavin & Montcineyre -->
+                    <tr>
+                        <td><strong>Boucle Pavin &#8594; Montchal &#8594; Montcineyre</strong> (Principale)<br>&#128257; <strong>Boucle</strong> | &#128205; D&#233;part : Lac Pavin (Besse)<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.4975,2.8885" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.4975, 2.8885</a></td>
+                        <td>15 km</td><td>+400 m</td><td>5h00</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Bord du Lac Pavin</strong> (Gratuit)<br>D978, 63610 Besse &bull; <code style="font-size:11px;">45.4975, 2.8885</code><br>&#128663; <strong>P2 : Parking Haut Pavin</strong> (Gratuit)<br><code style="font-size:11px;">45.4995, 2.8882</code></td>
+                    </tr>
+                    <tr class="alternative-row">
+                        <td>&#8627; <em>Alternative 1 : Pavin &amp; Montchal (Cr&#234;tes)</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.4975,2.8885" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.4975, 2.8885</a></td>
+                        <td>6 km</td><td>+200 m</td><td>2h15</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <tr class="alternative-row alternative-row-last">
+                        <td>&#8627; <em>Alternative 2 : Tour simple du Lac Pavin</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.4975,2.8885" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.4975, 2.8885</a></td>
+                        <td>3 km</td><td>Plat</td><td>1h00</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <!-- Puy de la Vache -->
+                    <tr>
+                        <td><strong>Puy de la Vache &amp; Lassolas</strong> (Principale)<br>&#128257; <strong>Boucle</strong> | &#128205; D&#233;part : D983 (Maison du Parc)<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.7135,2.9774" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.7135, 2.9774</a></td>
+                        <td>4,5 km</td><td>+280 m</td><td>1h30</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Parking Puy de la Vache</strong> (Gratuit)<br>D983, 63122 St-Gen&#232;s &bull; <code style="font-size:11px;">45.7135, 2.9774</code><br>&#128663; <strong>P2 : Parking de la Garandie</strong> (Gratuit)<br><code style="font-size:11px;">45.7061, 2.9740</code></td>
+                    </tr>
+                    <tr class="alternative-row">
+                        <td>&#8627; <em>Alternative 1 : Puy de la Vache seul</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.7135,2.9774" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.7135, 2.9774</a></td>
+                        <td>2 km</td><td>+200 m</td><td>1h00</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <tr class="alternative-row alternative-row-last">
+                        <td>&#8627; <em>Alternative 2 : Tour &#224; plat (Base)</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.7135,2.9774" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.7135, 2.9774</a></td>
+                        <td>3 km</td><td>+60 m</td><td>1h00</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <!-- Guery -->
+                    <tr>
+                        <td><strong>Lac de Gu&#233;ry &amp; Banne d&#39;Ordanche</strong> (Principale)<br>&#128257; <strong>Boucle</strong> | &#128205; D&#233;part : Col de Gu&#233;ry (Orcival)<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.6212,2.8213" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.6212, 2.8213</a></td>
+                        <td>14 km</td><td>+400 m</td><td>4h00</td>
+                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Col de Gu&#233;ry</strong> (Gratuit)<br>D983, 63210 Orcival &bull; <code style="font-size:11px;">45.6212, 2.8213</code><br>&#128663; <strong>P2 : Lac de Gu&#233;ry Sud</strong> (Gratuit)<br><code style="font-size:11px;">45.6175, 2.8228</code></td>
+                    </tr>
+                    <tr class="alternative-row">
+                        <td>&#8627; <em>Alternative 1 : Banne d&#39;Ordanche direct</em><br>&#128257; <strong>Boucle</strong> | &#128205; Col de St-Robert (Murat-le-Quaire)<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.6074,2.7845" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.6074, 2.7845</a></td>
+                        <td>4,5 km</td><td>+180 m</td><td>1h45</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Col de Saint-Robert</strong> (Gratuit)<br>Rte de la Banne, 63240 &bull; <code style="font-size:11px;">45.6074, 2.7845</code><br>&#128663; <strong>P2 : Parking des Fontaines</strong> (Gratuit)<br><code style="font-size:11px;">45.6045, 2.7725</code></td>
+                    </tr>
+                    <tr class="alternative-row alternative-row-last">
+                        <td>&#8627; <em>Alternative 2 : Sentier du Lac de Gu&#233;ry</em><br>&#128257; <strong>Boucle</strong> | &#128205; M&#234;me d&#233;part<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.6212,2.8213" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.6212, 2.8213</a></td>
+                        <td>3 km</td><td>Plat</td><td>1h00</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">P1/P2 identiques ci-dessus.</td>
+                    </tr>
+                    <!-- Chambon -->
+                    <tr>
+                        <td><strong>Tour du Lac Chambon</strong> (D&#233;tente)<br>&#128257; <strong>Boucle</strong> | &#128205; D&#233;part : Plage Est (Chambon)<br><a href="https://www.google.com/maps/dir/?api=1&destination=45.5684,2.9250" class="gps-link" style="margin-top:6px;" target="_blank">GPS : 45.5684, 2.9250</a></td>
+                        <td>3,5 km</td><td>Plat</td><td>1h00</td>
+                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                        <td class="parking-cell">&#128663; <strong>P1 : Plage Est</strong> (Gratuit)<br>Rte du Lac, 63790 Chambon-sur-Lac &bull; <code style="font-size:11px;">45.5684, 2.9250</code><br>&#128663; <strong>P2 : Plage Ouest Murol</strong> (Gratuit)<br><code style="font-size:11px;">45.5691, 2.9150</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div><!-- end catalog-body-inner -->
+        </div><!-- end catalog-body -->
+        </div><!-- end catalog-section -->
+    </div><!-- end catalog container -->
+
     <main class="container main-layout">
         
         <!-- Left: Dashboard Alerts & Logistics -->
@@ -1538,297 +1681,6 @@
 
     </main>
 
-    <!-- Collapsible Hiking Catalog Table (full width below the grid) -->
-    <div class="container" style="padding-top: 0; margin-top: 0;">
-        <div class="catalog-section open" id="catalog-section">
-            <div class="catalog-toggle" onclick="toggleCatalog()">
-                <div class="catalog-toggle-left">
-                    <svg style="width:26px;height:26px;fill:none;stroke:var(--primary);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    <div>
-                        <h2>Catalogue des Sentiers &amp; Alternatives</h2>
-                        <p style="font-size:13px;color:var(--text-muted);font-weight:500;margin-top:3px;">5 randonnées principales · 2 alternatives chacune · GPS cliquables · Parkings</p>
-                    </div>
-                </div>
-                <div class="catalog-toggle-right">
-                    <span class="catalog-state-label" id="catalog-state">Replier ▲</span>
-                    <svg class="catalog-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-                </div>
-            </div>
-            <div class="catalog-body">
-            <div class="catalog-body-inner">
-            <p style="font-size:13.5px;color:var(--text-muted);margin-bottom:18px;">Retrouvez ici tous les détails de vos randonnées principales ainsi que plusieurs alternatives simplifiées adaptées aux capacités physiques de chacun. Les coordonnées GPS ouvrent directement votre application de navigation.</p>
-        
-        <div class="table-responsive">
-            <table>
-                <thead>
-                    <tr>
-                        <th>Randonnée (Type, Tracé, Départ)</th>
-                        <th>Dist.</th>
-                        <th>Déniv.</th>
-                        <th>Durée</th>
-                        <th>Difficulté</th>
-                        <th>Parkings les plus proches (Adresses & GPS)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Chaudefour Cirque -->
-                    <tr>
-                        <td>
-                            <strong>Crêtes du Cirque de Chaudefour</strong> (Principale)<br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Maison de la Réserve<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5210,2.8202" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5210, 2.8202</a>
-                        </td>
-                        <td>15 km</td>
-                        <td>+950 m</td>
-                        <td>6h00</td>
-                        <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Maison de la Réserve</strong> (Payant)<br>D637, 63790 Chambon-sur-Lac • <code style="font-size: 11px;">45.5210, 2.8202</code><br>
-                            🚗 <strong>P2 : Entrée D36</strong> (Gratuit, le long de la route)<br>GPS : <code style="font-size: 11px;">45.5235, 2.8225</code>
-                        </td>
-                    </tr>
-                    <tr class="alternative-row">
-                        <td>
-                            ↳ <em>Alternative 1 : Crêtes de Crebassa</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Maison de la Réserve<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5210,2.8202" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5210, 2.8202</a>
-                        </td>
-                        <td>10 km</td>
-                        <td>+550 m</td>
-                        <td>4h00</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-                    <tr class="alternative-row alternative-row-last">
-                        <td>
-                            ↳ <em>Alternative 2 : Cascade de la Biche</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Maison de la Réserve<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5210,2.8202" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5210, 2.8202</a>
-                        </td>
-                        <td>6 km</td>
-                        <td>+150 m</td>
-                        <td>2h00</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-                    
-                    <!-- Sancy -->
-                    <tr>
-                        <td>
-                            <strong>Crêtes du Sancy du Mont-Dore</strong> (Principale)<br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Station Sancy (Mont-Dore)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5466,2.8161" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5466, 2.8161</a>
-                        </td>
-                        <td>16,5 km</td>
-                        <td>+1000 m</td>
-                        <td>6h30</td>
-                        <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Station du Mont-Dore</strong> (Payant)<br>Pied du Sancy, 63240 Le Mont-Dore • <code style="font-size: 11px;">45.5466, 2.8161</code><br>
-                            🚗 <strong>P2 : P2 Les Chômets (Tyrolienne)</strong> (Gratuit)<br>Route du Sancy, 63240 Le Mont-Dore • <code style="font-size: 11px;">45.5444, 2.8095</code>
-                        </td>
-                    </tr>
-                    <tr class="alternative-row">
-                        <td>
-                            ↳ <em>Alternative 1 : Val de Courre direct</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Station Sancy (Mont-Dore)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5466,2.8161" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5466, 2.8161</a>
-                        </td>
-                        <td>7 km</td>
-                        <td>+600 m</td>
-                        <td>3h30</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-                    <tr class="alternative-row alternative-row-last">
-                        <td>
-                            ↳ <em>Alternative 2 : Cascades Queureuilh & Rossignolet</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Rte de la Cascade (Mont-Dore)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5833,2.8167" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5833, 2.8167</a>
-                        </td>
-                        <td>3 km</td>
-                        <td>+150 m</td>
-                        <td>1h15</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Parking des Cascades</strong> (Gratuit)<br>Route de la Cascade, 63240 Le Mont-Dore • <code style="font-size: 11px;">45.5833, 2.8167</code><br>
-                            🚗 <strong>P2 : Cimetière Paysager</strong> (Gratuit)<br>D996, 63240 Le Mont-Dore • <code style="font-size: 11px;">45.5801, 2.8115</code>
-                        </td>
-                    </tr>
-
-                    <!-- Pavin & Montcineyre -->
-                    <tr>
-                        <td>
-                            <strong>Boucle Pavin ➔ Montchal ➔ Montcineyre</strong> (Principale)<br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Lac Pavin (Besse)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.4975,2.8885" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.4975, 2.8885</a>
-                        </td>
-                        <td>15 km</td>
-                        <td>+400 m</td>
-                        <td>5h00</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Lac Pavin Bord de Lac</strong> (Gratuit)<br>D978, 63610 Besse-et-St-Anastaise • <code style="font-size: 11px;">45.4975, 2.8885</code><br>
-                            🚗 <strong>P2 : Parking Haut Pavin</strong> (Gratuit, plus grand)<br>D978 (en face du lac) • GPS : <code style="font-size: 11px;">45.4995, 2.8882</code>
-                        </td>
-                    </tr>
-                    <tr class="alternative-row">
-                        <td>
-                            ↳ <em>Alternative 1 : Pavin & Montchal (Crêtes)</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Lac Pavin (Besse)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.4975,2.8885" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.4975, 2.8885</a>
-                        </td>
-                        <td>6 km</td>
-                        <td>+200 m</td>
-                        <td>2h15</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-                    <tr class="alternative-row alternative-row-last">
-                        <td>
-                            ↳ <em>Alternative 2 : Tour simple du Lac Pavin</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Lac Pavin (Besse)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.4975,2.8885" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.4975, 2.8885</a>
-                        </td>
-                        <td>3 km</td>
-                        <td>Plat</td>
-                        <td>1h00</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-
-                    <!-- Puy de la Vache -->
-                    <tr>
-                        <td>
-                            <strong>Puy de la Vache & Lassolas</strong> (Principale)<br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : D983 (Maison du Parc)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.7135,2.9774" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.7135, 2.9774</a>
-                        </td>
-                        <td>4,5 km</td>
-                        <td>+280 m</td>
-                        <td>1h30</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Parking Puy de la Vache</strong> (Gratuit)<br>D983, 63122 St-Genès-Champanelle • <code style="font-size: 11px;">45.7135, 2.9774</code><br>
-                            🚗 <strong>P2 : Parking de la Garandie</strong> (Gratuit, repli)<br>La Garandie, 63122 • GPS : <code style="font-size: 11px;">45.7061, 2.9740</code>
-                        </td>
-                    </tr>
-                    <tr class="alternative-row">
-                        <td>
-                            ↳ <em>Alternative 1 : Puy de la Vache seul</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : D983 (Maison du Parc)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.7135,2.9774" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.7135, 2.9774</a>
-                        </td>
-                        <td>2 km</td>
-                        <td>+200 m</td>
-                        <td>1h00</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-                    <tr class="alternative-row alternative-row-last">
-                        <td>
-                            ↳ <em>Alternative 2 : Tour à plat (Base)</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : D983 (Maison du Parc)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.7135,2.9774" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.7135, 2.9774</a>
-                        </td>
-                        <td>3 km</td>
-                        <td>+60 m</td>
-                        <td>1h00</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale ci-dessus)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-
-                    <!-- Guéry -->
-                    <tr>
-                        <td>
-                            <strong>Lac de Guéry & Banne d'Ordanche</strong> (Principale)<br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Col de Guéry (Orcival)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.6212,2.8213" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.6212, 2.8213</a>
-                        </td>
-                        <td>14 km</td>
-                        <td>+400 m</td>
-                        <td>4h00</td>
-                        <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Parking du Col de Guéry</strong> (Gratuit)<br>D983, 63210 Orcival • GPS : <code style="font-size: 11px;">45.6212, 2.8213</code><br>
-                            🚗 <strong>P2 : Parking Lac de Guéry Sud</strong> (Gratuit)<br>D983, 63210 Orcival • GPS : <code style="font-size: 11px;">45.6175, 2.8228</code>
-                        </td>
-                    </tr>
-                    <tr class="alternative-row">
-                        <td>
-                            ↳ <em>Alternative 1 : Banne d'Ordanche direct</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Col de St-Robert (Murat-le-Quaire)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.6074,2.7845" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.6074, 2.7845</a>
-                        </td>
-                        <td>4,5 km</td>
-                        <td>+180 m</td>
-                        <td>1h45</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Parking du Col de Saint-Robert</strong> (Gratuit)<br>Route de la Banne, 63240 Murat-le-Quaire • GPS : <code style="font-size: 11px;">45.6074, 2.7845</code><br>
-                            🚗 <strong>P2 : Parking des Fontaines</strong> (Gratuit, repli)<br>Route forestière de la Banne • GPS : <code style="font-size: 11px;">45.6045, 2.7725</code>
-                        </td>
-                    </tr>
-                    <tr class="alternative-row alternative-row-last">
-                        <td>
-                            ↳ <em>Alternative 2 : Sentier du Lac de Guéry</em><br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Col de Guéry (Orcival)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.6212,2.8213" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.6212, 2.8213</a>
-                        </td>
-                        <td>3 km</td>
-                        <td>Plat</td>
-                        <td>1h00</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            (Identique à la randonnée principale du Guéry)<br>
-                            🚗 <strong>P1/P2</strong> aux mêmes coordonnées.
-                        </td>
-                    </tr>
-
-                    <!-- Chambon -->
-                    <tr>
-                        <td>
-                            <strong>Tour du Lac Chambon</strong> (Détente)<br>
-                            🔁 <strong>Boucle</strong> | 📍 Départ : Plage Est (Chambon)<br>
-                            <a href="https://www.google.com/maps/dir/?api=1&destination=45.5684,2.9250" class="gps-link" style="margin-top: 6px;" target="_blank">GPS : 45.5684, 2.9250</a>
-                        </td>
-                        <td>3,5 km</td>
-                        <td>Plat</td>
-                        <td>1h00</td>
-                        <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                        <td class="parking-cell">
-                            🚗 <strong>P1 : Parking Plage Est</strong> (Gratuit)<br>Route du Lac, 63790 Chambon-sur-Lac • <code style="font-size: 11px;">45.5684, 2.9250</code><br>
-                            🚗 <strong>P2 : Parking Plage Ouest Murol</strong> (Gratuit)<br>Chemin de la Plage, 63790 Murol • GPS : <code style="font-size: 11px;">45.5691, 2.9150</code>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        </div><!-- end catalog-body-inner -->
-        </div><!-- end catalog-body -->
-        </div><!-- end catalog-section -->
-    </div><!-- end container -->
 
     <script>
         // Theme switching logic
