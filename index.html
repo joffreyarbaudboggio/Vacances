@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnet de Route - Puy-de-Dôme 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        /* Tailored HSL Color Palette & Tokens */
+        :root {
+            --bg-main: hsl(220, 25%, 96%);
+            --bg-card: hsla(0, 0%, 100%, 0.9);
+            --bg-blur: saturate(180%) blur(16px);
+            --text-main: hsl(220, 30%, 16%);
+            --text-muted: hsl(220, 15%, 42%);
+            --primary: hsl(210, 65%, 33%);
+            --primary-light: hsl(210, 65%, 94%);
+            --primary-glow: hsla(210, 65%, 33%, 0.15);
+            --accent: hsl(20, 90%, 48%);
+            --accent-light: hsl(20, 90%, 95%);
+            --success: hsl(145, 55%, 36%);
+            --success-light: hsl(145, 55%, 95%);
+            --border: hsl(220, 15%, 88%);
+            --border-hover: hsl(210, 65%, 85%);
+            --shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --shadow-hover: 0 16px 40px rgba(31, 78, 121, 0.08), 0 4px 12px rgba(31, 78, 121, 0.03);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-main: hsl(222, 25%, 8%);
+            --bg-card: hsla(222, 25%, 12%, 0.9);
+            --text-main: hsl(220, 25%, 90%);
+            --text-muted: hsl(220, 12%, 65%);
+            --primary: hsl(208, 85%, 60%);
+            --primary-light: hsl(208, 65%, 18%);
+            --primary-glow: hsla(208, 85%, 60%, 0.2);
+            --accent: hsl(20, 95%, 55%);
+            --accent-light: hsl(20, 60%, 16%);
+            --success: hsl(145, 60%, 46%);
+            --success-light: hsl(145, 60%, 16%);
+            --border: hsl(222, 15%, 18%);
+            --border-hover: hsl(208, 65%, 28%);
+            --shadow: 0 8px 36px rgba(0, 0, 0, 0.3);
+            --shadow-hover: 0 16px 48px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Base Resets */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            transition: var(--transition);
+            padding-bottom: 80px;
+            background-image: 
+                radial-gradient(at 0% 0%, hsla(210, 65%, 33%, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, hsla(20, 90%, 48%, 0.03) 0px, transparent 50%);
+            background-attachment: fixed;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Elegant Header layout */
+        header {
+            padding: 40px 0 24px 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 40px;
+            backdrop-filter: var(--bg-blur);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .header-title h1 {
+            font-size: 34px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            font-weight: 800;
+        }
+
+        .header-subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Glass Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 22px;
+            border-radius: var(--radius-sm);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 1px solid var(--border);
+            background-color: var(--bg-card);
+            color: var(--text-main);
+            box-shadow: var(--shadow);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background-color: hsl(210, 65%, 26%);
+            border-color: hsl(210, 65%, 26%);
+        }
+
+        .icon {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: var(--transition);
+        }
+
+        #theme-btn:hover .icon {
+            transform: rotate(20deg);
+        }
+
+        /* Pill tags */
+        .group-pill {
+            background-color: var(--primary-light);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Main Dashboard Structure */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        @media (min-width: 992px) {
+            .main-layout {
+                grid-template-columns: 360px 1fr;
+            }
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 24px;
+        }
+
+        /* Cards and Dashboard Widgets */
+        .card {
+            background-color: var(--bg-card);
+            backdrop-filter: var(--bg-blur);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-hover);
+        }
+
+        .card-title {
+            font-size: 18px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 12px;
+        }
+
+        .alert-item {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .alert-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .alert-icon-container {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .alert-orange {
+            background-color: var(--accent-light);
+            color: var(--accent);
+        }
+
+        .alert-blue {
+            background-color: var(--primary-light);
+            color: var(--primary);
+        }
+
+        .alert-green {
+            background-color: var(--success-light);
+            color: var(--success);
+        }
+
+        .alert-body h4 {
+            font-size: 14px;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .alert-body p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Right Content Container */
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        /* Timeline Controls */
+        .filter-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--bg-card);
+            padding: 18px 24px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .filter-title {
+            font-size: 17px;
+            font-weight: 700;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .filter-btn {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-muted);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px var(--primary-glow);
+        }
+
+        /* Collapsible Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 24px;
+            border-left: 2px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .timeline-day {
+            position: relative;
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .timeline-day::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background-color: var(--bg-main);
+            border: 4px solid var(--primary);
+            z-index: 2;
+            transition: var(--transition);
+        }
+
+        .timeline-day:hover::before {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            transform: scale(1.2);
+        }
+
+        /* Day Card Header & Toggle Trigger */
+        .day-header {
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .day-title {
+            font-size: 18px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .day-tags {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .day-tag {
+            font-size: 11px;
+            font-weight: 800;
+            padding: 4px 12px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .tag-hiking { background-color: var(--primary-light); color: var(--primary); }
+        .tag-culture { background-color: var(--accent-light); color: var(--accent); }
+        .tag-leisure { background-color: var(--success-light); color: var(--success); }
+
+        .chevron {
+            transition: transform 0.3s ease;
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+        }
+
+        /* Collapsible body container */
+        .day-body-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .day-body {
+            padding: 0 24px 24px 24px;
+            border-top: 1px solid transparent;
+            font-size: 14.5px;
+            color: var(--text-main);
+        }
+
+        .timeline-day.expanded .day-body-wrapper {
+            max-height: 2000px; /* higher limit for detailed content */
+        }
+
+        .timeline-day.expanded .day-body {
+            border-top-color: var(--border);
+        }
+
+        .timeline-day.expanded .chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Collapsible Details styling for nested content */
+        details.detail-panel {
+            background-color: var(--bg-main);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            margin-top: 12px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        details.detail-panel:hover {
+            border-color: var(--border-hover);
+        }
+
+        details.detail-panel summary {
+            padding: 12px 16px;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            color: var(--primary);
+            user-select: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            list-style: none;
+        }
+
+        details.detail-panel summary::-webkit-details-marker {
+            display: none;
+        }
+
+        details.detail-panel summary::after {
+            content: '+';
+            font-size: 18px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+
+        details.detail-panel[open] summary::after {
+            content: '−';
+        }
+
+        .detail-content {
+            padding: 16px;
+            border-top: 1px solid var(--border);
+            font-size: 13.5px;
+            color: var(--text-main);
+            background-color: var(--bg-card);
+        }
+
+        .detail-content p {
+            margin-bottom: 10px;
+        }
+
+        .detail-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Web link style */
+        .web-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border-bottom: 1px dashed var(--primary);
+            transition: var(--transition);
+        }
+
+        .web-link:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* List Styling with Custom SVGs */
+        .task-list {
+            list-style: none;
+            margin-bottom: 12px;
+        }
+
+        .task-item {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 10px;
+            font-weight: 500;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .task-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='hsl(210, 65%, 35%)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'%3E%3C/path%3E%3Cpolyline points='22 4 12 14.01 9 11.01'%3E%3C/polyline%3E%3C/svg%3E");
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+
+        [data-theme="dark"] .task-item::before {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='hsl(208, 85%, 60%)' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' viewBox='0 0 24 24'%3E%3Cpath d='M22 11.08V12a10 10 0 1 1-5.93-9.14'%3E%3C/path%3E%3Cpolyline points='22 4 12 14.01 9 11.01'%3E%3C/polyline%3E%3C/svg%3E");
+        }
+
+        /* Advice Card Panel (Glassmorphism highlight) */
+        .opt-box {
+            background-color: var(--primary-light);
+            border-left: 4px solid var(--primary);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 16px 20px;
+            margin-top: 18px;
+            font-size: 13.5px;
+            font-weight: 500;
+            color: var(--primary);
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            box-shadow: inset 0 1px 3px rgba(31, 78, 121, 0.05);
+        }
+
+        [data-theme="dark"] .opt-box {
+            color: hsl(208, 90%, 85%);
+        }
+
+        .opt-box-accent {
+            background-color: var(--accent-light);
+            border-left-color: var(--accent);
+            color: var(--accent);
+        }
+
+        [data-theme="dark"] .opt-box-accent {
+            color: hsl(20, 95%, 85%);
+        }
+
+        .opt-icon-col {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.2;
+        }
+
+        .opt-text-col strong {
+            font-weight: 700;
+            margin-bottom: 2px;
+            display: block;
+        }
+
+        /* Elegant Rando List Table */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 13.5px;
+        }
+
+        th {
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 18px;
+            font-weight: 600;
+            font-family: 'Outfit', sans-serif;
+            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+
+        td {
+            padding: 14px 18px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        tr:nth-child(even) td {
+            background-color: var(--bg-main);
+        }
+
+        /* Difficulty badges */
+        .difficulty-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .diff-facile { background-color: var(--success-light); color: var(--success); }
+        .diff-moyenne { background-color: var(--primary-light); color: var(--primary); }
+        .diff-difficile { background-color: var(--accent-light); color: var(--accent); }
+
+        /* Quick facts Info card list */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
+            margin-top: 14px;
+        }
+
+        .info-pill {
+            background-color: var(--bg-main);
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+        }
+
+        .info-pill svg {
+            width: 16px;
+            height: 16px;
+            stroke-width: 2.5;
+        }
+
+        .map-placeholder {
+            background-color: var(--bg-main);
+            border: 1px dashed var(--border);
+            border-radius: var(--radius-sm);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Print stylesheet high fidelity */
+        @media print {
+            body {
+                background-color: white !important;
+                background-image: none !important;
+                color: black !important;
+                font-size: 12px;
+                padding-bottom: 0;
+            }
+
+            .btn, .header-actions, .filter-bar, .map-section, .chevron {
+                display: none !important;
+            }
+
+            header {
+                padding: 10px 0;
+                margin-bottom: 20px;
+                border-bottom: 2px solid black;
+            }
+
+            .header-title h1 {
+                background: none;
+                -webkit-text-fill-color: black;
+                color: black;
+                font-size: 24px;
+            }
+
+            .main-layout {
+                grid-template-columns: 1fr !important;
+                gap: 20px;
+            }
+
+            .sidebar {
+                break-after: page;
+            }
+
+            .card {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                margin-bottom: 15px;
+                background-color: white !important;
+                border-radius: 4px !important;
+            }
+
+            .timeline {
+                border-left: 1px solid #ccc;
+                padding-left: 15px;
+            }
+
+            .timeline-day {
+                border: 1px solid #ccc !important;
+                box-shadow: none !important;
+                background-color: white !important;
+                break-inside: avoid;
+                margin-bottom: 15px;
+                padding: 0 !important;
+                border-radius: 4px !important;
+            }
+
+            .day-header {
+                padding: 10px 15px;
+                border-bottom: 1px solid #ccc;
+            }
+
+            .day-body-wrapper {
+                max-height: none !important; /* Force open on print */
+                overflow: visible !important;
+            }
+
+            .day-body {
+                padding: 15px;
+            }
+
+            .timeline-day::before {
+                left: -24px;
+                width: 10px;
+                height: 10px;
+                border-width: 2px;
+            }
+
+            .opt-box {
+                border-left: 3px solid black;
+                background-color: #f5f5f5 !important;
+                color: black !important;
+                border-radius: 0 !important;
+            }
+
+            details.detail-panel {
+                border: 1px solid #ccc !important;
+                background-color: white !important;
+                margin-top: 10px;
+            }
+
+            details.detail-panel summary::after {
+                content: "" !important;
+            }
+
+            table {
+                font-size: 11px;
+            }
+
+            th {
+                background-color: #333 !important;
+                color: white !important;
+            }
+
+            tr:nth-child(even) td {
+                background-color: #f9f9f9 !important;
+            }
+
+            .difficulty-badge {
+                border: 1px solid #333;
+                background-color: transparent !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="header-title">
+                <h1>Carnet de Voyage Puy-de-Dôme 2026</h1>
+                <div class="header-subtitle">
+                    <span class="group-pill">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        7 Adultes (Moyenne 32 ans) • Sans Enfants • Sans Animaux
+                    </span>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button class="btn" id="theme-btn" onclick="toggleTheme()">
+                    <svg class="icon" viewBox="0 0 24 24" id="theme-icon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <span>Mode Sombre</span>
+                </button>
+                <button class="btn btn-primary" onclick="window.print()">
+                    <svg class="icon" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                    Imprimer le Carnet
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container main-layout">
+        
+        <!-- Left: Dashboard Alerts & Logistics -->
+        <section class="sidebar">
+            <div class="sticky-sidebar">
+                
+                <!-- Logement Card -->
+                <div class="card" style="margin-bottom: 24px; border-left: 4px solid var(--primary);">
+                    <h2 class="card-title" style="color: var(--primary);">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        Camp de Base
+                    </h2>
+                    <div class="alert-item">
+                        <div class="alert-icon-container alert-blue">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                        </div>
+                        <div class="alert-body">
+                            <h4>Gîte à Picherande</h4>
+                            <p><strong>Adresse :</strong> Adresse exacte à venir (63113 Picherande)</p>
+                            <p style="font-size: 11px; margin-top: 4px; color: var(--text-muted);">Picherande est idéalement situé à l'ouest du Massif du Sancy.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-alerts">
+                    <h2 class="card-title" style="color: var(--accent);">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        Alertes Été 2026
+                    </h2>
+                    
+                    <div class="alert-item">
+                        <div class="alert-icon-container alert-orange">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                        </div>
+                        <div class="alert-body">
+                            <h4>Canicule (Vigilance Orange)</h4>
+                            <p>Températures de 35 à 39 °C. Randonnées sur crêtes non ombragées. Départs à 6h30 impératifs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="alert-item">
+                        <div class="alert-icon-container alert-orange">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <div class="alert-body">
+                            <h4>Sécheresse (Arrêté 20261126)</h4>
+                            <p>Débit critique des rivières (Allier/Sioule). Privilégier le canoë sur le Lac de Bort-les-Orgues.</p>
+                        </div>
+                    </div>
+
+                    <div class="alert-item">
+                        <div class="alert-icon-container alert-orange">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+                        </div>
+                        <div class="alert-body">
+                            <h4>Risque d'Incendie en Forêt</h4>
+                            <p>Accès réglementé, interdiction de fumer ou d'allumer du feu à moins de 200m des massifs.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="margin-top: 24px;">
+                    <h2 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        Logistique de Groupe
+                    </h2>
+                    <div class="alert-item">
+                        <div class="alert-icon-container alert-blue">
+                            <svg class="icon" viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                        </div>
+                        <div class="alert-body">
+                            <h4>Convoi à 2 voitures</h4>
+                            <p>Parkings de Sancy et Chaudefour saturés à 8h00. Arriver à 7h45 au plus tard.</p>
+                        </div>
+                    </div>
+                    <div class="alert-item">
+                        <div class="alert-icon-container alert-blue">
+                            <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                        </div>
+                        <div class="alert-body">
+                            <h4>Réservations 7 Pers.</h4>
+                            <p>Réservations indispensables en avance pour les restaurants (Samedi, Lundi, Mercredi) et la base de canoë.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Right: Content Area -->
+        <section class="content-area">
+
+            <!-- Section 1: Grille des randonnées -->
+            <div class="card">
+                <h2 class="card-title">
+                    <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/></svg>
+                    Fiches Techniques des Randonnées
+                </h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Randonnée</th>
+                                <th>Distance</th>
+                                <th>Dénivelé</th>
+                                <th>Durée</th>
+                                <th>Difficulté</th>
+                                <th>Type de parcours</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-type="sportive">
+                                <td><strong>Crêtes du Sancy</strong> (du Mont-Dore)</td>
+                                <td>16-17 km</td>
+                                <td>+1 000 m</td>
+                                <td>6h à 7h</td>
+                                <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
+                                <td>Boucle alpine complète</td>
+                            </tr>
+                            <tr data-type="sportive">
+                                <td><strong>Crêtes de la Vallée de Chaudefour</strong></td>
+                                <td>14-16 km</td>
+                                <td>+950 m</td>
+                                <td>5h à 6h30</td>
+                                <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
+                                <td>Tour du cirque glaciaire</td>
+                            </tr>
+                            <tr data-type="sportive">
+                                <td><strong>Grande Boucle des deux Lacs</strong> (Pavin + Montcineyre)</td>
+                                <td>15 km</td>
+                                <td>+400 m</td>
+                                <td>5h00</td>
+                                <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                                <td>Liaison Pavin ➔ Montchal ➔ Montcineyre</td>
+                            </tr>
+                            <tr data-type="facile">
+                                <td><strong>Puy de la Vache & Lassolas</strong></td>
+                                <td>4,5 km</td>
+                                <td>+280 m</td>
+                                <td>1h30</td>
+                                <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                                <td>Montée raide sur pouzzolane</td>
+                            </tr>
+                            <tr data-type="sportive">
+                                <td><strong>Lac de Guéry & Banne d'Ordanche</strong></td>
+                                <td>14 km</td>
+                                <td>+400 m</td>
+                                <td>4h00</td>
+                                <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
+                                <td>Plateau d'altitude panoramique</td>
+                            </tr>
+                            <tr data-type="facile">
+                                <td><strong>Tour du Lac Chambon</strong></td>
+                                <td>3,5 km</td>
+                                <td>Plat</td>
+                                <td>1h00</td>
+                                <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                                <td>Détente / Baignade</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Section 2: Timeline interactive -->
+            <div>
+                <div class="filter-bar" style="margin-bottom: 24px;">
+                    <div class="filter-title">Planning de la Semaine</div>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterTimeline('all')">Tous les jours</button>
+                        <button class="filter-btn" onclick="filterTimeline('sportive')">Sport</button>
+                        <button class="filter-btn" onclick="filterTimeline('facile')">Culture/Détente</button>
+                    </div>
+                </div>
+
+                <div class="timeline">
+                    
+                    <!-- Samedi -->
+                    <div class="timeline-day expanded" data-tag="facile">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Samedi 01/08/2026 : Arrivée</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-leisure">Logistique</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item">Départ d’Arpajon avec pilote Loulou ou de Toulon avec pilote Joffrey.</li>
+                                    <li class="task-item">Arrivée à <strong>Picherande</strong> et installation dans le chalet.</li>
+                                    <li class="task-item">Courses de groupe au supermarché du secteur.</li>
+                                </ul>
+
+                                <!-- Restos & Logistique Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🍴 Proposition Restaurant & Dîner</summary>
+                                    <div class="detail-content">
+                                        <p><strong>L'Auberge des 5 Sancy (Picherande)</strong></p>
+                                        <p>Une auberge traditionnelle et très conviviale située au cœur même de Picherande, idéale pour fêter votre arrivée autour d'une bonne table locale sans reprendre la route.</p>
+                                        <p>📍 <strong>Adresse :</strong> Le Bourg, 63113 Picherande</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 22 30 76</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dimanche -->
+                    <div class="timeline-day expanded" data-tag="sportive">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Dimanche 02/08/2026 : Vallée de Chaudefour & Chambon</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-hiking">Randonnée</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item"><strong>Matin :</strong> Vallée de Chaudefour (32 min du chalet).</li>
+                                    <li class="task-item">Pique-nique de groupe dans le cirque.</li>
+                                    <li class="task-item"><strong>Après-midi :</strong> Tour du lac Chambon et baignade.</li>
+                                </ul>
+
+                                <!-- Rando Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🥾 Fiche Randonnée : Crêtes de Chaudefour</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Itinéraire :</strong> Le Tour du Cirque Glaciaire (Dent de la Rancune, Crête de Coq)</p>
+                                        <p>📏 <strong>Distance :</strong> 14 - 16 km | 📈 <strong>Dénivelé :</strong> +950 m | ⏱️ <strong>Durée :</strong> 5h à 6h30</p>
+                                        <p>⚠️ <strong>Difficulté :</strong> <span class="difficulty-badge diff-difficile">Difficile</span></p>
+                                        <p><strong>Description :</strong> Un des plus beaux panoramas d'Auvergne, contournant une réserve naturelle nationale. Sentiers escarpés sur les crêtes.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Activité Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🏖️ Détail Après-midi : Lac Chambon</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Tour du Lac Chambon :</strong> 3,5 km | Plat | 1h00 | <span class="difficulty-badge diff-facile">Facile</span></p>
+                                        <p>Idéal pour se détendre, faire un plongeon et boire un verre au bord de l'eau après l'effort du matin.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Restos Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🍴 Proposition Restaurant (Dîner / Déjeuner)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>La Bergerie (Super-Besse)</strong></p>
+                                        <p>Une table montagnarde mythique réputée pour sa truffade servie directement dans sa poêle en fonte, avec jambon de pays et salade verte.</p>
+                                        <p>📍 <strong>Adresse :</strong> Route du Lac, Rond-Point des pistes, 63610 Super-Besse (à 15 min du Lac Chambon)</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 79 61 06</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://labergerie-superbesse.fr" class="web-link" target="_blank">labergerie-superbesse.fr</a></p>
+                                    </div>
+                                </details>
+
+                                <div class="opt-box">
+                                    <svg class="opt-icon-col" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                    <div class="opt-text-col">
+                                        <strong>Conseil logistique :</strong>
+                                        Faites la version sportive du Tour des Crêtes. Prévoyez un départ à <strong>6h30 du chalet</strong> pour vous garer sans problème (parkings pleins dès 8h00) et marcher avant les grosses chaleurs.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lundi -->
+                    <div class="timeline-day expanded" data-tag="sportive">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Lundi 03/08/2026 : Le Sancy par les Crêtes</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-hiking">Sport Extrême</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item"><strong>Journée :</strong> Randonnée reine sur les Crêtes du Sancy.</li>
+                                    <li class="task-item">Départ depuis Le Mont-Dore (40 min du chalet).</li>
+                                    <li class="task-item">Pique-nique sur le sommet du Sancy (1885 m).</li>
+                                </ul>
+
+                                <!-- Rando Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🥾 Fiche Randonnée : Crêtes du Sancy</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Itinéraire :</strong> Mont-Dore ➔ Val de Courre ➔ Sommet du Sancy ➔ Crêtes ➔ Retour</p>
+                                        <p>📏 <strong>Distance :</strong> 16 - 17 km | 📈 <strong>Dénivelé :</strong> +1 000 m | ⏱️ <strong>Durée :</strong> 6h à 7h</p>
+                                        <p>⚠️ <strong>Difficulté :</strong> <span class="difficulty-badge diff-difficile">Difficile</span></p>
+                                        <p><strong>Description :</strong> Parcours alpin sur le point culminant du Massif Central. Les panoramas sont grandioses mais le tracé est exigeant.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Repli Canicule Dépliable -->
+                                <details class="detail-panel" style="border-color: var(--accent);">
+                                    <summary>❄️ Repli Canicule : Grotte de la Pierre de Volvic</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Activité fraîcheur par excellence :</strong> Visite guidée au cœur d'une ancienne galerie de lave souterraine exploitée pour sa pierre de Volvic. Température intérieure de <strong>10-12 °C constants</strong>.</p>
+                                        <p>📍 <strong>Adresse :</strong> 2 Route de la Mine, 63530 Volvic (à 45 min du Mont-Dore)</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 33 56 92</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://www.grotte-pierre-volvic.fr" class="web-link" target="_blank">grotte-pierre-volvic.fr</a></p>
+                                    </div>
+                                </details>
+
+                                <!-- Restos Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🍴 Proposition Restaurant (Dîner)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Le Chalet de Néo (Le Mont-Dore)</strong></p>
+                                        <p>Ambiance chalet boisé raffinée, parfait pour déguster des spécialités locales (truffade, fondue au Saint-Nectaire ou burgers au bleu d'Auvergne) après une longue journée de marche.</p>
+                                        <p>📍 <strong>Adresse :</strong> 21 Rue Jean Moulin, 63240 Le Mont-Dore</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 65 02 42</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://lechaletdeneo.com" class="web-link" target="_blank">lechaletdeneo.com</a></p>
+                                    </div>
+                                </details>
+
+                                <div class="opt-box opt-box-accent">
+                                    <svg class="opt-icon-col" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                    <div class="opt-text-col">
+                                        <strong>Alerte Canicule :</strong>
+                                        Cette randonnée n'offre <strong>aucun ombrage</strong>. Départ à <strong>6h30 du chalet obligatoire</strong> pour éviter les heures les plus chaudes. Réservez le restaurant ce soir dès aujourd'hui (7 personnes).
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mardi -->
+                    <div class="timeline-day expanded" data-tag="facile">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Mardi 04/08/2026 : Vulcania</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-leisure">Loisirs</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item">Journée complète au parc de loisirs des volcans <strong>Vulcania</strong> (60 min du chalet).</li>
+                                    <li class="task-item">Fin de journée détente et baignade.</li>
+                                </ul>
+
+                                <!-- Vulcania Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🌋 Infos Pratiques Vulcania</summary>
+                                    <div class="detail-content">
+                                        <p>Le plus grand parc européen sur le thème des volcans et phénomènes naturels. Idéal pour alterner entre attractions interactives, films en 3D/4D et espaces frais.</p>
+                                        <p>📍 <strong>Adresse :</strong> Route de Mazayes, 63230 Saint-Ours-les-Roches</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://www.vulcania.com" class="web-link" target="_blank">vulcania.com</a></p>
+                                    </div>
+                                </details>
+
+                                <!-- Aydat Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🏖️ Détente de fin d'après-midi : Lac d'Aydat</summary>
+                                    <div class="detail-content">
+                                        <p>Sur le chemin du retour, arrêtez-vous au <strong>Lac d'Aydat</strong> (plus grand lac naturel d'Auvergne) pour une baignade rafraîchissante et surveillée dans un cadre boisé.</p>
+                                        <p>📍 <strong>Adresse :</strong> Sauteyras, 63970 Aydat</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mercredi -->
+                    <div class="timeline-day expanded" data-tag="facile">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Mercredi 05/08/2026 : Murol, Besse & Lac Pavin</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-culture">Culture</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item"><strong>Matin :</strong> Visite guidée du Château médiéval de Murol (27 min du chalet).</li>
+                                    <li class="task-item"><strong>Déjeuner :</strong> Auberge traditionnelle près du lac.</li>
+                                    <li class="task-item"><strong>Après-midi :</strong> Flânerie dans le village médiéval de Besse.</li>
+                                </ul>
+
+                                <!-- Château de Murol Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🏰 Infos Château de Murol</summary>
+                                    <div class="detail-content">
+                                        <p>Forteresse médiévale incontournable dressée sur son éperon rocheux, offrant des spectacles équestres et des visites animées.</p>
+                                        <p>📍 <strong>Adresse :</strong> Rue du Château, 63790 Murol</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://murolchateau.com" class="web-link" target="_blank">murolchateau.com</a></p>
+                                    </div>
+                                </details>
+
+                                <!-- Resto Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🍴 Déjeuner Recommandé (Midi)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>La Ferme du Gélat (Besse)</strong></p>
+                                        <p>Ancien corps de ferme en pierres de taille proposant une cuisine de terroir rustique et copieuse. Réputé pour sa charcuterie de pays et sa truffade maison.</p>
+                                        <p>📍 <strong>Adresse :</strong> Route de Super-Besse, 63610 Besse-et-Saint-Anastaise (à mi-chemin vers le Lac Pavin)</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 79 64 54</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://fermedugelat.fr" class="web-link" target="_blank">fermedugelat.fr</a></p>
+                                    </div>
+                                </details>
+
+                                <div class="opt-box">
+                                    <svg class="opt-icon-col" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                    <div class="opt-text-col">
+                                        <strong>Conseil d'organisation :</strong>
+                                        Reportez la visite du Lac Pavin à demain. Profitez pleinement de la cité médiévale de Besse (beaux commerces de fromages et ruelles pavées) cet après-midi pour couper la journée logistiquement.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Jeudi -->
+                    <div class="timeline-day expanded" data-tag="sportive">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Jeudi 06/08/2026 : Pavin & Montcineyre (Grande Boucle)</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-hiking">Randonnée</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item">Randonnée de liaison des lacs (10 min du chalet).</li>
+                                    <li class="task-item">Pique-nique ombragé au bord du lac de Montcineyre.</li>
+                                    <li class="task-item">Achat de fromages de pays à la ferme.</li>
+                                </ul>
+
+                                <!-- Rando Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🥾 Fiche Randonnée : Grande Boucle des deux Lacs</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Itinéraire :</strong> Lac Pavin ➔ Puy de Montchal ➔ Lac de Montcineyre ➔ Retour par forêt</p>
+                                        <p>📏 <strong>Distance :</strong> 15 km | 📈 <strong>Dénivelé :</strong> +400 m | ⏱️ <strong>Durée :</strong> 5h00</p>
+                                        <p>⚠️ <strong>Difficulté :</strong> <span class="difficulty-badge diff-moyenne">Moyenne</span></p>
+                                        <p><strong>Description :</strong> Superbe randonnée ombragée sous la fraîcheur d'une forêt de hêtres, passant par le jeune lac de cratère volcanique Pavin et le lac naturel de barrage volcanique de Montcineyre.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Fromage Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🧀 Producteur Saint-Nectaire</summary>
+                                    <div class="detail-content">
+                                        <p><strong>La Ferme de la Vertugadine (Chastreix)</strong></p>
+                                        <p>Vente directe de Saint-Nectaire fermier AOP élaboré sur place. Possibilité d'assister à la traite des vaches et à la fabrication des fromages en fin d'après-midi.</p>
+                                        <p>📍 <strong>Adresse :</strong> La Vertugadine, 63610 Chastreix (à 10 min de Picherande)</p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Vendredi -->
+                    <div class="timeline-day expanded" data-tag="facile">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Vendredi 07/08/2026 : Saint-Floret & Canoë</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-leisure">Détente / Sport</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item"><strong>Matin :</strong> Visite de la cité fortifiée de Saint-Floret (38 min du chalet).</li>
+                                    <li class="task-item"><strong>Midi :</strong> Déjeuner convivial dans Issoire.</li>
+                                    <li class="task-item"><strong>Après-midi :</strong> Descente en canoë-kayak sur l'Allier.</li>
+                                </ul>
+
+                                <!-- Canoë Principal Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🛶 Base Canoë Issoire (Option Principale)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>USI Canoë-Kayak</strong></p>
+                                        <p>Le club d'Issoire propose des descentes de l'Allier en kayak ou canoë de 2 à 3 heures, idéales en groupe d'amis. Réservation téléphonique fortement recommandée.</p>
+                                        <p>📍 <strong>Adresse :</strong> 12 Avenue du Docteur Bienfait, 63500 Issoire</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 89 65 51 / 07 81 92 32 23</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="http://www.canoe-kayak-issoire.fr" class="web-link" target="_blank">canoe-kayak-issoire.fr</a></p>
+                                    </div>
+                                </details>
+
+                                <!-- Canoë Alternative Dépliable -->
+                                <details class="detail-panel" style="border-color: var(--accent);">
+                                    <summary>⚓ Alternative Sécheresse (Bort-les-Orgues)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Plage des Aubazines (Lac de Bort-les-Orgues)</strong></p>
+                                        <p>En cas de débit de rivière trop bas sur l'Allier empêchant la navigation (arrêté sécheresse), louez des kayaks et paddles sur le grand Lac de Bort-les-Orgues. Plan d'eau garanti sans frottement sur les galets.</p>
+                                        <p>📍 <strong>Adresse :</strong> Route d'Ussel, 19110 Bort-les-Orgues</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="http://www.les-aubazines.com" class="web-link" target="_blank">les-aubazines.com</a></p>
+                                    </div>
+                                </details>
+
+                                <!-- Resto Issoire Dépliable -->
+                                <details class="detail-panel">
+                                    <summary>🍴 Déjeuner Recommandé (Issoire)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Chez Mémé (Issoire)</strong></p>
+                                        <p>Une véritable institution d'Issoire. Cuisine « comme à la maison », élaborée à partir de produits ultra-frais et servie de manière généreuse directement dans des cocottes en cuivre.</p>
+                                        <p>📍 <strong>Adresse :</strong> 39 Rue de la Berbiziale, 63500 Issoire</p>
+                                        <p>📞 <strong>Téléphone :</strong> 04 73 89 25 15</p>
+                                        <p>🌐 <strong>Site Web :</strong> <a href="https://chezmeme-issoire.fr" class="web-link" target="_blank">chezmeme-issoire.fr</a></p>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Samedi -->
+                    <div class="timeline-day expanded" data-tag="facile">
+                        <div class="day-header" onclick="toggleDay(this.parentNode)">
+                            <h3 class="day-title">Samedi 08/08/2026 : Retour</h3>
+                            <div class="day-tags">
+                                <span class="day-tag tag-leisure">Logistique</span>
+                                <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                        </div>
+                        <div class="day-body-wrapper">
+                            <div class="day-body">
+                                <ul class="task-list">
+                                    <li class="task-item">Ménage et rangement du chalet à Picherande.</li>
+                                    <li class="task-item">État des lieux, restitution des clés et route retour vers Arpajon et Toulon.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Section 3: Notes utiles -->
+            <div class="card">
+                <h2 class="card-title">Conseils Complémentaires Importants</h2>
+                <div style="font-size: 14px; color: var(--text-main); display: flex; flex-direction: column; gap: 14px;">
+                    <p><strong>🔥 Gestion des feux de forêts :</strong> L'accès aux sentiers de randonnée forestiers peut être réglementé par arrêté municipal ou préfectoral. Les feux de camp et barbecues sont strictement interdits.</p>
+                    <p><strong>🦠 Cyanobactéries dans les lacs :</strong> Les températures élevées favorisent le développement de toxines dans les plans d'eau fermés. Avant de vous baigner au Lac Chambon ou au Lac d'Aydat, consultez impérativement les drapeaux et affichages de sécurité de l'ARS.</p>
+                    <p><strong>🚰 Restrictions Sécheresse :</strong> Notre camp de base à Picherande est assujetti à l'arrêté préfectoral de restriction d'eau. Merci de veiller à limiter votre consommation.</p>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <script>
+        // Theme switching logic
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            const themeBtnText = document.querySelector('#theme-btn span');
+            const themeIcon = document.querySelector('#theme-icon');
+            
+            if (currentTheme === 'dark') {
+                body.removeAttribute('data-theme');
+                themeBtnText.textContent = "Mode Sombre";
+                themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                themeBtnText.textContent = "Mode Clair";
+                themeIcon.innerHTML = '<path d="M12 7a5 5 0 1 1-4.992 5.002L7 12a5 5 0 0 1 5-7zM2 11h2v2H2v-2zm18 0h2v2h-2v-2zM11 2h2v2h-2V2zm0 18h2v2h-2v-2zM5.99 4.576l1.414 1.414L6.0 7.404 4.576 5.99l1.414-1.414zm10.607 10.607l1.414 1.414-1.404 1.414-1.414-1.414 1.404-1.414zm-10.607 4.028l-1.414-1.414 1.414-1.414 1.414 1.414-1.414 1.414zm12.021-12.02l1.414-1.414 1.414 1.414-1.414 1.414-1.414-1.414z"/>';
+            }
+        }
+
+        // Accordion Toggle
+        function toggleDay(element) {
+            if (window.matchMedia('print').matches) return;
+            element.classList.toggle('expanded');
+        }
+
+        // Timeline filtering logic
+        function filterTimeline(tag) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            event.target.classList.add('active');
+
+            const items = document.querySelectorAll('.timeline-day');
+            items.forEach(item => {
+                if (tag === 'all') {
+                    item.style.display = 'block';
+                } else {
+                    const itemTag = item.getAttribute('data-tag');
+                    if (itemTag === tag) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        // Auto-expand all <details> and days before printing, restore after
+        window.onbeforeprint = () => {
+            document.querySelectorAll('.timeline-day').forEach(day => {
+                day.setAttribute('data-was-expanded', day.classList.contains('expanded'));
+                day.classList.add('expanded');
+            });
+            document.querySelectorAll('details.detail-panel').forEach(det => {
+                det.setAttribute('data-was-open', det.open);
+                det.open = true;
+            });
+        };
+
+        window.onafterprint = () => {
+            document.querySelectorAll('.timeline-day').forEach(day => {
+                if (day.getAttribute('data-was-expanded') === 'false') {
+                    day.classList.remove('expanded');
+                }
+                day.removeAttribute('data-was-expanded');
+            });
+            document.querySelectorAll('details.detail-panel').forEach(det => {
+                if (det.getAttribute('data-was-open') === 'false') {
+                    det.open = false;
+                }
+                det.removeAttribute('data-was-open');
+            });
+        };
+    </script>
+</body>
+</html>
