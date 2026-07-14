@@ -434,7 +434,7 @@
         }
 
         .timeline-day.expanded .day-body-wrapper {
-            max-height: 2000px; /* higher limit for detailed content */
+            max-height: 2500px; /* higher limit for detailed content */
         }
 
         .timeline-day.expanded .day-body {
@@ -610,7 +610,7 @@
             width: 100%;
             border-collapse: collapse;
             text-align: left;
-            font-size: 13.5px;
+            font-size: 13.2px;
         }
 
         th {
@@ -624,7 +624,7 @@
         }
 
         td {
-            padding: 14px 18px;
+            padding: 12px 18px;
             border-bottom: 1px solid var(--border);
             color: var(--text-main);
             font-weight: 500;
@@ -634,8 +634,11 @@
             border-bottom: none;
         }
 
-        tr:nth-child(even) td {
+        tr.alternative-row td {
             background-color: var(--bg-main);
+            font-style: italic;
+            color: var(--text-muted);
+            border-bottom: 1.5px solid var(--border);
         }
 
         /* Difficulty badges */
@@ -678,14 +681,6 @@
             width: 16px;
             height: 16px;
             stroke-width: 2.5;
-        }
-
-        .map-placeholder {
-            background-color: var(--bg-main);
-            border: 1px dashed var(--border);
-            border-radius: var(--radius-sm);
-            padding: 20px;
-            text-align: center;
         }
 
         /* Print stylesheet high fidelity */
@@ -928,7 +923,7 @@
             <div class="card">
                 <h2 class="card-title">
                     <svg class="icon" viewBox="0 0 24 24"><polygon points="12 2 2 22 22 22 12 2"/></svg>
-                    Fiches Techniques des Randonnées
+                    Fiches Techniques & Alternatives Randonnées
                 </h2>
                 <div class="table-responsive">
                     <table>
@@ -943,53 +938,94 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <!-- Chaudefour -->
                             <tr data-type="sportive">
-                                <td><strong>Crêtes du Sancy</strong> (du Mont-Dore)</td>
-                                <td>16-17 km</td>
-                                <td>+1 000 m</td>
-                                <td>6h à 7h</td>
-                                <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
-                                <td>Boucle alpine complète</td>
-                            </tr>
-                            <tr data-type="sportive">
-                                <td><strong>Crêtes de la Vallée de Chaudefour</strong></td>
+                                <td><strong>Crêtes du Cirque de Chaudefour</strong> (Principale)</td>
                                 <td>14-16 km</td>
                                 <td>+950 m</td>
                                 <td>5h à 6h30</td>
                                 <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
-                                <td>Tour du cirque glaciaire</td>
+                                <td>Tour complet du cirque glaciaire</td>
                             </tr>
+                            <tr class="alternative-row" data-type="facile">
+                                <td>↳ <em>Alternative : Cascade de la Biche (Fond de Vallée)</em></td>
+                                <td>6 km (A/R)</td>
+                                <td>+150 m</td>
+                                <td>2h00</td>
+                                <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                                <td>Sentier forestier plat & ombragé</td>
+                            </tr>
+                            
+                            <!-- Sancy -->
                             <tr data-type="sportive">
-                                <td><strong>Grande Boucle des deux Lacs</strong> (Pavin + Montcineyre)</td>
+                                <td><strong>Crêtes du Sancy</strong> (Principale)</td>
+                                <td>16-17 km</td>
+                                <td>+1 000 m</td>
+                                <td>6h à 7h</td>
+                                <td><span class="difficulty-badge diff-difficile">Difficile</span></td>
+                                <td>Boucle alpine complète par les sommets</td>
+                            </tr>
+                            <tr class="alternative-row" data-type="facile">
+                                <td>↳ <em>Alternative : Cascades Queureuilh & Rossignolet</em></td>
+                                <td>3 km</td>
+                                <td>+150 m</td>
+                                <td>1h15</td>
+                                <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                                <td>Balade très ombragée en sous-bois frais</td>
+                            </tr>
+
+                            <!-- Pavin & Montcineyre -->
+                            <tr data-type="sportive">
+                                <td><strong>Boucle Pavin ➔ Montchal ➔ Montcineyre</strong> (Principale)</td>
                                 <td>15 km</td>
                                 <td>+400 m</td>
                                 <td>5h00</td>
                                 <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                                <td>Liaison Pavin ➔ Montchal ➔ Montcineyre</td>
+                                <td>Liaison des deux Lacs volcaniques</td>
                             </tr>
-                            <tr data-type="facile">
-                                <td><strong>Puy de la Vache & Lassolas</strong></td>
+                            <tr class="alternative-row" data-type="facile">
+                                <td>↳ <em>Alternative : Tour du Lac Pavin & Montchal</em></td>
+                                <td>5 km</td>
+                                <td>+150 m</td>
+                                <td>1h45</td>
+                                <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                                <td>Tour du cratère par la forêt</td>
+                            </tr>
+
+                            <!-- Puy de la Vache -->
+                            <tr data-type="sportive">
+                                <td><strong>Puy de la Vache & Lassolas</strong> (Principale)</td>
                                 <td>4,5 km</td>
                                 <td>+280 m</td>
                                 <td>1h30</td>
                                 <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
-                                <td>Montée raide sur pouzzolane</td>
+                                <td>Ascension raide sur pouzzolane volcanique</td>
                             </tr>
+                            <tr class="alternative-row" data-type="facile">
+                                <td>↳ <em>Alternative : Tour du Puy de la Vache (Base)</em></td>
+                                <td>3 km</td>
+                                <td>+60 m</td>
+                                <td>1h00</td>
+                                <td><span class="difficulty-badge diff-facile">Facile</span></td>
+                                <td>Sentier forestier à plat autour du cône</td>
+                            </tr>
+
+                            <!-- Guéry -->
                             <tr data-type="sportive">
-                                <td><strong>Lac de Guéry & Banne d'Ordanche</strong></td>
+                                <td><strong>Lac de Guéry & Banne d'Ordanche</strong> (Principale)</td>
                                 <td>14 km</td>
                                 <td>+400 m</td>
                                 <td>4h00</td>
                                 <td><span class="difficulty-badge diff-moyenne">Moyenne</span></td>
                                 <td>Plateau d'altitude panoramique</td>
                             </tr>
-                            <tr data-type="facile">
-                                <td><strong>Tour du Lac Chambon</strong></td>
-                                <td>3,5 km</td>
+                            <tr class="alternative-row" data-type="facile">
+                                <td>↳ <em>Alternative : Sentier du Lac de Guéry</em></td>
+                                <td>3 km</td>
                                 <td>Plat</td>
                                 <td>1h00</td>
                                 <td><span class="difficulty-badge diff-facile">Facile</span></td>
-                                <td>Détente / Baignade</td>
+                                <td>Tour du lac de barrage morainique</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1043,7 +1079,7 @@
                     <!-- Dimanche -->
                     <div class="timeline-day expanded" data-tag="sportive">
                         <div class="day-header" onclick="toggleDay(this.parentNode)">
-                            <h3 class="day-title">Dimanche 02/08/2026 : Vallée de Chaudefour & Chambon</h3>
+                            <h3 class="day-title">Dimanche 02/08/2026 : Vallée de Chaudefour & Lac Chambon</h3>
                             <div class="day-tags">
                                 <span class="day-tag tag-hiking">Randonnée</span>
                                 <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1052,19 +1088,30 @@
                         <div class="day-body-wrapper">
                             <div class="day-body">
                                 <ul class="task-list">
-                                    <li class="task-item"><strong>Matin :</strong> Vallée de Chaudefour (32 min du chalet).</li>
-                                    <li class="task-item">Pique-nique de groupe dans le cirque.</li>
+                                    <li class="task-item"><strong>Matin :</strong> Randonnée au choix (Crêtes sportives OU Fond de vallée facile).</li>
+                                    <li class="task-item">Pique-nique de groupe dans la vallée.</li>
                                     <li class="task-item"><strong>Après-midi :</strong> Tour du lac Chambon et baignade.</li>
                                 </ul>
 
-                                <!-- Rando Dépliable -->
+                                <!-- Rando Principale Dépliable -->
                                 <details class="detail-panel">
-                                    <summary>🥾 Fiche Randonnée : Crêtes de Chaudefour</summary>
+                                    <summary>🔥 Randonnée Principale : Crêtes de Chaudefour (Sportifs)</summary>
                                     <div class="detail-content">
-                                        <p><strong>Itinéraire :</strong> Le Tour du Cirque Glaciaire (Dent de la Rancune, Crête de Coq)</p>
+                                        <p><strong>Itinéraire :</strong> Le Tour des Crêtes du Cirque Glaciaire (Dent de la Rancune, Crête de Coq)</p>
                                         <p>📏 <strong>Distance :</strong> 14 - 16 km | 📈 <strong>Dénivelé :</strong> +950 m | ⏱️ <strong>Durée :</strong> 5h à 6h30</p>
                                         <p>⚠️ <strong>Difficulté :</strong> <span class="difficulty-badge diff-difficile">Difficile</span></p>
-                                        <p><strong>Description :</strong> Un des plus beaux panoramas d'Auvergne, contournant une réserve naturelle nationale. Sentiers escarpés sur les crêtes.</p>
+                                        <p><strong>Description :</strong> Parcours vertigineux et aérien avec de superbes panoramas. Convient aux randonneurs expérimentés et sportifs.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Rando Alternative Dépliable -->
+                                <details class="detail-panel" style="border-color: var(--success);">
+                                    <summary>🍃 Alternative Simple : Cascade de la Biche (Détente)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Itinéraire :</strong> Sentier forestier dans le fond de la vallée jusqu'à la cascade.</p>
+                                        <p>📏 <strong>Distance :</strong> 6 km (Aller/Retour) | 📈 <strong>Dénivelé :</strong> +150 m | ⏱️ <strong>Durée :</strong> 2h00</p>
+                                        <p>✅ <strong>Difficulté :</strong> <span class="difficulty-badge diff-facile">Facile</span></p>
+                                        <p><strong>Description :</strong> Balade entièrement ombragée, à plat, sous les grands hêtres. Idéale pour se promener tranquillement et observer la faune sans forcer.</p>
                                     </div>
                                 </details>
 
@@ -1073,7 +1120,7 @@
                                     <summary>🏖️ Détail Après-midi : Lac Chambon</summary>
                                     <div class="detail-content">
                                         <p><strong>Tour du Lac Chambon :</strong> 3,5 km | Plat | 1h00 | <span class="difficulty-badge diff-facile">Facile</span></p>
-                                        <p>Idéal pour se détendre, faire un plongeon et boire un verre au bord de l'eau après l'effort du matin.</p>
+                                        <p>Idéal pour se détendre, faire un plongeon et boire un verre au bord de l'eau après la marche du matin.</p>
                                     </div>
                                 </details>
 
@@ -1093,7 +1140,7 @@
                                     <svg class="opt-icon-col" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
                                     <div class="opt-text-col">
                                         <strong>Conseil logistique :</strong>
-                                        Faites la version sportive du Tour des Crêtes. Prévoyez un départ à <strong>6h30 du chalet</strong> pour vous garer sans problème (parkings pleins dès 8h00) et marcher avant les grosses chaleurs.
+                                        Pour le groupe faisant le Tour des Crêtes, prévoyez un départ à <strong>6h30 du chalet</strong> car les parkings de Chaudefour saturent dès 8h00.
                                     </div>
                                 </div>
                             </div>
@@ -1112,19 +1159,31 @@
                         <div class="day-body-wrapper">
                             <div class="day-body">
                                 <ul class="task-list">
-                                    <li class="task-item"><strong>Journée :</strong> Randonnée reine sur les Crêtes du Sancy.</li>
-                                    <li class="task-item">Départ depuis Le Mont-Dore (40 min du chalet).</li>
-                                    <li class="task-item">Pique-nique sur le sommet du Sancy (1885 m).</li>
+                                    <li class="task-item"><strong>Journée :</strong> Randonnée au choix au départ du Mont-Dore.</li>
+                                    <li class="task-item">Pique-nique de groupe sur le secteur.</li>
+                                    <li class="task-item">Dîner de groupe en ville le soir.</li>
                                 </ul>
 
-                                <!-- Rando Dépliable -->
+                                <!-- Rando Principale Dépliable -->
                                 <details class="detail-panel">
-                                    <summary>🥾 Fiche Randonnée : Crêtes du Sancy</summary>
+                                    <summary>🔥 Randonnée Principale : Crêtes du Sancy (Sportifs)</summary>
                                     <div class="detail-content">
-                                        <p><strong>Itinéraire :</strong> Mont-Dore ➔ Val de Courre ➔ Sommet du Sancy ➔ Crêtes ➔ Retour</p>
+                                        <p><strong>Itinéraire :</strong> Mont-Dore ➔ Val de Courre ➔ Sommet du Sancy (1885 m) ➔ Retour par les Crêtes</p>
                                         <p>📏 <strong>Distance :</strong> 16 - 17 km | 📈 <strong>Dénivelé :</strong> +1 000 m | ⏱️ <strong>Durée :</strong> 6h à 7h</p>
                                         <p>⚠️ <strong>Difficulté :</strong> <span class="difficulty-badge diff-difficile">Difficile</span></p>
-                                        <p><strong>Description :</strong> Parcours alpin sur le point culminant du Massif Central. Les panoramas sont grandioses mais le tracé est exigeant.</p>
+                                        <p><strong>Description :</strong> Traversée alpine d'altitude offrant des panoramas à 360° sur les volcans. Très physique et escarpé.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Rando Alternative Dépliable -->
+                                <details class="detail-panel" style="border-color: var(--success);">
+                                    <summary>🍃 Alternative Simple : Les Cascades du Mont-Dore (Détente)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Itinéraire :</strong> Boucle forestière des Cascades du Queureuilh et du Rossignolet.</p>
+                                        <p>📏 <strong>Distance :</strong> 3 km | 📈 <strong>Dénivelé :</strong> +150 m | ⏱️ <strong>Durée :</strong> 1h15</p>
+                                        <p>✅ <strong>Difficulté :</strong> <span class="difficulty-badge diff-facile">Facile</span></p>
+                                        <p><strong>Description :</strong> Une balade magique, très facile et ombragée en sous-bois. La fraîcheur des cascades est un régal absolu par fortes températures.</p>
+                                        <p>💡 <em>Option alternative :</em> Les moins sportifs peuvent aussi monter au sommet du Sancy via le **Téléphérique du Sancy** (depuis le parking de la station) pour rejoindre les autres au sommet avec seulement 15 min d'escalier.</p>
                                     </div>
                                 </details>
 
@@ -1132,7 +1191,7 @@
                                 <details class="detail-panel" style="border-color: var(--accent);">
                                     <summary>❄️ Repli Canicule : Grotte de la Pierre de Volvic</summary>
                                     <div class="detail-content">
-                                        <p><strong>Activité fraîcheur par excellence :</strong> Visite guidée au cœur d'une ancienne galerie de lave souterraine exploitée pour sa pierre de Volvic. Température intérieure de <strong>10-12 °C constants</strong>.</p>
+                                        <p><strong>Activité fraîcheur :</strong> Visite guidée au cœur d'une ancienne galerie de lave souterraine. Température de <strong>10-12 °C constants</strong>.</p>
                                         <p>📍 <strong>Adresse :</strong> 2 Route de la Mine, 63530 Volvic (à 45 min du Mont-Dore)</p>
                                         <p>📞 <strong>Téléphone :</strong> 04 73 33 56 92</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="https://www.grotte-pierre-volvic.fr" class="web-link" target="_blank">grotte-pierre-volvic.fr</a></p>
@@ -1155,7 +1214,7 @@
                                     <svg class="opt-icon-col" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
                                     <div class="opt-text-col">
                                         <strong>Alerte Canicule :</strong>
-                                        Cette randonnée n'offre <strong>aucun ombrage</strong>. Départ à <strong>6h30 du chalet obligatoire</strong> pour éviter les heures les plus chaudes. Réservez le restaurant ce soir dès aujourd'hui (7 personnes).
+                                        Le parcours des crêtes du Sancy n'offre <strong>aucun ombrage</strong>. Départ à <strong>6h30 du chalet obligatoire</strong> pour les marcheurs afin d'éviter la fournaise.
                                     </div>
                                 </div>
                             </div>
@@ -1175,14 +1234,14 @@
                             <div class="day-body">
                                 <ul class="task-list">
                                     <li class="task-item">Journée complète au parc de loisirs des volcans <strong>Vulcania</strong> (60 min du chalet).</li>
-                                    <li class="task-item">Fin de journée détente et baignade.</li>
+                                    <li class="task-item">Fin de journée détente et baignade au lac.</li>
                                 </ul>
 
                                 <!-- Vulcania Dépliable -->
                                 <details class="detail-panel">
                                     <summary>🌋 Infos Pratiques Vulcania</summary>
                                     <div class="detail-content">
-                                        <p>Le plus grand parc européen sur le thème des volcans et phénomènes naturels. Idéal pour alterner entre attractions interactives, films en 3D/4D et espaces frais.</p>
+                                        <p>Le plus grand parc européen sur le thème des volcans et phénomènes naturels. Idéal pour alterner entre attractions interactives et espaces climatisés.</p>
                                         <p>📍 <strong>Adresse :</strong> Route de Mazayes, 63230 Saint-Ours-les-Roches</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="https://www.vulcania.com" class="web-link" target="_blank">vulcania.com</a></p>
                                     </div>
@@ -1192,7 +1251,7 @@
                                 <details class="detail-panel">
                                     <summary>🏖️ Détente de fin d'après-midi : Lac d'Aydat</summary>
                                     <div class="detail-content">
-                                        <p>Sur le chemin du retour, arrêtez-vous au <strong>Lac d'Aydat</strong> (plus grand lac naturel d'Auvergne) pour une baignade rafraîchissante et surveillée dans un cadre boisé.</p>
+                                        <p>Sur le chemin du retour, arrêt possible au <strong>Lac d'Aydat</strong> pour une baignade surveillée dans un cadre boisé frais.</p>
                                         <p>📍 <strong>Adresse :</strong> Sauteyras, 63970 Aydat</p>
                                     </div>
                                 </details>
@@ -1214,14 +1273,14 @@
                                 <ul class="task-list">
                                     <li class="task-item"><strong>Matin :</strong> Visite guidée du Château médiéval de Murol (27 min du chalet).</li>
                                     <li class="task-item"><strong>Déjeuner :</strong> Auberge traditionnelle près du lac.</li>
-                                    <li class="task-item"><strong>Après-midi :</strong> Flânerie dans le village médiéval de Besse.</li>
+                                    <li class="task-item"><strong>Après-midi :</strong> Visite médiévale de Besse.</li>
                                 </ul>
 
                                 <!-- Château de Murol Dépliable -->
                                 <details class="detail-panel">
                                     <summary>🏰 Infos Château de Murol</summary>
                                     <div class="detail-content">
-                                        <p>Forteresse médiévale incontournable dressée sur son éperon rocheux, offrant des spectacles équestres et des visites animées.</p>
+                                        <p>Forteresse médiévale incontournable dressée sur son éperon rocheux, offrant des spectacles équestres.</p>
                                         <p>📍 <strong>Adresse :</strong> Rue du Château, 63790 Murol</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="https://murolchateau.com" class="web-link" target="_blank">murolchateau.com</a></p>
                                     </div>
@@ -1232,20 +1291,12 @@
                                     <summary>🍴 Déjeuner Recommandé (Midi)</summary>
                                     <div class="detail-content">
                                         <p><strong>La Ferme du Gélat (Besse)</strong></p>
-                                        <p>Ancien corps de ferme en pierres de taille proposant une cuisine de terroir rustique et copieuse. Réputé pour sa charcuterie de pays et sa truffade maison.</p>
-                                        <p>📍 <strong>Adresse :</strong> Route de Super-Besse, 63610 Besse-et-Saint-Anastaise (à mi-chemin vers le Lac Pavin)</p>
+                                        <p>Ancien corps de ferme en pierres de taille proposant une cuisine de terroir rustique. Truffade maison cuite de façon traditionnelle.</p>
+                                        <p>📍 <strong>Adresse :</strong> Route de Super-Besse, 63610 Besse-et-Saint-Anastaise</p>
                                         <p>📞 <strong>Téléphone :</strong> 04 73 79 64 54</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="https://fermedugelat.fr" class="web-link" target="_blank">fermedugelat.fr</a></p>
                                     </div>
                                 </details>
-
-                                <div class="opt-box">
-                                    <svg class="opt-icon-col" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                    <div class="opt-text-col">
-                                        <strong>Conseil d'organisation :</strong>
-                                        Reportez la visite du Lac Pavin à demain. Profitez pleinement de la cité médiévale de Besse (beaux commerces de fromages et ruelles pavées) cet après-midi pour couper la journée logistiquement.
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -1253,7 +1304,7 @@
                     <!-- Jeudi -->
                     <div class="timeline-day expanded" data-tag="sportive">
                         <div class="day-header" onclick="toggleDay(this.parentNode)">
-                            <h3 class="day-title">Jeudi 06/08/2026 : Pavin & Montcineyre (Grande Boucle)</h3>
+                            <h3 class="day-title">Jeudi 06/08/2026 : Pavin & Montcineyre</h3>
                             <div class="day-tags">
                                 <span class="day-tag tag-hiking">Randonnée</span>
                                 <svg class="icon chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1262,19 +1313,30 @@
                         <div class="day-body-wrapper">
                             <div class="day-body">
                                 <ul class="task-list">
-                                    <li class="task-item">Randonnée de liaison des lacs (10 min du chalet).</li>
-                                    <li class="task-item">Pique-nique ombragé au bord du lac de Montcineyre.</li>
-                                    <li class="task-item">Achat de fromages de pays à la ferme.</li>
+                                    <li class="task-item">Randonnée au choix (Grande Boucle des deux lacs OU Tour simple du Pavin).</li>
+                                    <li class="task-item">Pique-nique de groupe sous les hêtres.</li>
+                                    <li class="task-item">Achat de fromages fermiers locaux en fin d'après-midi.</li>
                                 </ul>
 
-                                <!-- Rando Dépliable -->
+                                <!-- Rando Principale Dépliable -->
                                 <details class="detail-panel">
-                                    <summary>🥾 Fiche Randonnée : Grande Boucle des deux Lacs</summary>
+                                    <summary>🔥 Randonnée Principale : Grande Boucle des deux Lacs (Sportifs)</summary>
                                     <div class="detail-content">
                                         <p><strong>Itinéraire :</strong> Lac Pavin ➔ Puy de Montchal ➔ Lac de Montcineyre ➔ Retour par forêt</p>
                                         <p>📏 <strong>Distance :</strong> 15 km | 📈 <strong>Dénivelé :</strong> +400 m | ⏱️ <strong>Durée :</strong> 5h00</p>
                                         <p>⚠️ <strong>Difficulté :</strong> <span class="difficulty-badge diff-moyenne">Moyenne</span></p>
-                                        <p><strong>Description :</strong> Superbe randonnée ombragée sous la fraîcheur d'une forêt de hêtres, passant par le jeune lac de cratère volcanique Pavin et le lac naturel de barrage volcanique de Montcineyre.</p>
+                                        <p><strong>Description :</strong> Liaison magnifique entre deux superbes lacs d'Auvergne, à l'ombre fraîche de la hêtraie.</p>
+                                    </div>
+                                </details>
+
+                                <!-- Rando Alternative Dépliable -->
+                                <details class="detail-panel" style="border-color: var(--success);">
+                                    <summary>🍃 Alternative Simple : Cratère du Lac Pavin (Détente)</summary>
+                                    <div class="detail-content">
+                                        <p><strong>Itinéraire :</strong> Tour du Lac Pavin et montée douce sur le cratère (Puy de Montchal).</p>
+                                        <p>📏 <strong>Distance :</strong> 5 km | 📈 <strong>Dénivelé :</strong> +150 m | ⏱️ <strong>Durée :</strong> 1h45</p>
+                                        <p>✅ <strong>Difficulté :</strong> <span class="difficulty-badge diff-facile">Facile</span></p>
+                                        <p><strong>Description :</strong> Une balade circulaire et ombragée très agréable autour de ce lac de cratère mystérieux et parfaitement rond.</p>
                                     </div>
                                 </details>
 
@@ -1283,7 +1345,7 @@
                                     <summary>🧀 Producteur Saint-Nectaire</summary>
                                     <div class="detail-content">
                                         <p><strong>La Ferme de la Vertugadine (Chastreix)</strong></p>
-                                        <p>Vente directe de Saint-Nectaire fermier AOP élaboré sur place. Possibilité d'assister à la traite des vaches et à la fabrication des fromages en fin d'après-midi.</p>
+                                        <p>Vente directe de Saint-Nectaire fermier AOP élaboré sur place. Visite de la fabrication possible.</p>
                                         <p>📍 <strong>Adresse :</strong> La Vertugadine, 63610 Chastreix (à 10 min de Picherande)</p>
                                     </div>
                                 </details>
@@ -1303,7 +1365,7 @@
                         <div class="day-body-wrapper">
                             <div class="day-body">
                                 <ul class="task-list">
-                                    <li class="task-item"><strong>Matin :</strong> Visite de la cité fortifiée de Saint-Floret (38 min du chalet).</li>
+                                    <li class="task-item"><strong>Matin :</strong> Visite du village de Saint-Floret (38 min du chalet).</li>
                                     <li class="task-item"><strong>Midi :</strong> Déjeuner convivial dans Issoire.</li>
                                     <li class="task-item"><strong>Après-midi :</strong> Descente en canoë-kayak sur l'Allier.</li>
                                 </ul>
@@ -1313,7 +1375,7 @@
                                     <summary>🛶 Base Canoë Issoire (Option Principale)</summary>
                                     <div class="detail-content">
                                         <p><strong>USI Canoë-Kayak</strong></p>
-                                        <p>Le club d'Issoire propose des descentes de l'Allier en kayak ou canoë de 2 à 3 heures, idéales en groupe d'amis. Réservation téléphonique fortement recommandée.</p>
+                                        <p>Le club d'Issoire propose des parcours en kayak ou canoë de 2 à 3 heures, idéaux en groupe.</p>
                                         <p>📍 <strong>Adresse :</strong> 12 Avenue du Docteur Bienfait, 63500 Issoire</p>
                                         <p>📞 <strong>Téléphone :</strong> 04 73 89 65 51 / 07 81 92 32 23</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="http://www.canoe-kayak-issoire.fr" class="web-link" target="_blank">canoe-kayak-issoire.fr</a></p>
@@ -1325,7 +1387,7 @@
                                     <summary>⚓ Alternative Sécheresse (Bort-les-Orgues)</summary>
                                     <div class="detail-content">
                                         <p><strong>Plage des Aubazines (Lac de Bort-les-Orgues)</strong></p>
-                                        <p>En cas de débit de rivière trop bas sur l'Allier empêchant la navigation (arrêté sécheresse), louez des kayaks et paddles sur le grand Lac de Bort-les-Orgues. Plan d'eau garanti sans frottement sur les galets.</p>
+                                        <p>En cas de débit de rivière trop bas empêchant la navigation sur l'Allier (sécheresse), louez des paddles et kayaks sur le grand lac.</p>
                                         <p>📍 <strong>Adresse :</strong> Route d'Ussel, 19110 Bort-les-Orgues</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="http://www.les-aubazines.com" class="web-link" target="_blank">les-aubazines.com</a></p>
                                     </div>
@@ -1336,7 +1398,7 @@
                                     <summary>🍴 Déjeuner Recommandé (Issoire)</summary>
                                     <div class="detail-content">
                                         <p><strong>Chez Mémé (Issoire)</strong></p>
-                                        <p>Une véritable institution d'Issoire. Cuisine « comme à la maison », élaborée à partir de produits ultra-frais et servie de manière généreuse directement dans des cocottes en cuivre.</p>
+                                        <p>Cuisine « comme à la maison », élaborée à partir de produits frais et servie de manière généreuse directement dans des cocottes en cuivre.</p>
                                         <p>📍 <strong>Adresse :</strong> 39 Rue de la Berbiziale, 63500 Issoire</p>
                                         <p>📞 <strong>Téléphone :</strong> 04 73 89 25 15</p>
                                         <p>🌐 <strong>Site Web :</strong> <a href="https://chezmeme-issoire.fr" class="web-link" target="_blank">chezmeme-issoire.fr</a></p>
@@ -1359,7 +1421,7 @@
                             <div class="day-body">
                                 <ul class="task-list">
                                     <li class="task-item">Ménage et rangement du chalet à Picherande.</li>
-                                    <li class="task-item">État des lieux, restitution des clés et route retour vers Arpajon et Toulon.</li>
+                                    <li class="task-item">Restitution des clés et trajet retour vers Arpajon et Toulon.</li>
                                 </ul>
                             </div>
                         </div>
