@@ -1,0 +1,13 @@
+.DS_Store
+.tmp/
+~*
+~$*
+Carnet_de_Voyage.html
+*.pdf
+*.docx
+*.jpg
+*.png
+*.txt
+*.json
+*.py
+walkthrough.md
